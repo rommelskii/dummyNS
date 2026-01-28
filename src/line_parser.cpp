@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <vector>
+#include <cstring>
+
 #include "dns_model.h"
 #include "line_parser.h"
 
@@ -49,8 +51,8 @@ DnsEntryLine LineProcessor::GetDnsEntry(char* line_buffer) {
     return dns_entry;
   }
 
-  std::memcpy(dns_entry.ip, keyword_buffer[0].c_str(), ip_len);
-  std::memcpy(dns_entry.hostname, keyword_buffer[1].c_str(), hostname_len);
+  memcpy(dns_entry.ip, keyword_buffer[0].c_str(), ip_len);
+  memcpy(dns_entry.hostname, keyword_buffer[1].c_str(), hostname_len);
 
   if (keyword_buffer.size() >= 3) {
     size_t alias_len = keyword_buffer[2].size();
@@ -58,7 +60,7 @@ DnsEntryLine LineProcessor::GetDnsEntry(char* line_buffer) {
       std::cerr << "GetDnsEntry: alias too long" << "\n";
       return dns_entry;
     }
-    std::memcpy(dns_entry.alias, keyword_buffer[2].c_str(), alias_len);
+    memcpy(dns_entry.alias, keyword_buffer[2].c_str(), alias_len);
   }
 
   keyword_buffer.clear();

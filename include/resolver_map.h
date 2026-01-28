@@ -9,6 +9,7 @@
 #include <string>
 #include <cstdint>
 #include <vector>
+
 #include "dns_model.h"
 
 /**
