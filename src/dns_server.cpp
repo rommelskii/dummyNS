@@ -2,6 +2,8 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <cstring>
+
 #include "resolver_map.h"
 #include "line_parser.h"
 
