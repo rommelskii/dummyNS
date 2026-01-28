@@ -1,0 +1,2 @@
+192.168.100.2 google.com    app.google.com
+62.25.100.5 S1    S1.local
