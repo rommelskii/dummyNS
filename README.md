@@ -29,5 +29,4 @@ A custom C++ implementation of a DNS resolution engine and DHCP state machine. T
 ├── include/           # Header files (.h)
 ├── src/               # Implementation files (.cpp)
 ├── tests/             # GTest unit tests
-├── data/              # hosts.txt and configuration files
 └── CMakeLists.txt     # Build configuration
