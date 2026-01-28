@@ -23,11 +23,21 @@ int main(int argc, char* argv[])
     exit(EXIT_FAILURE);
   }
    
-  const char* ARG_DOMAIN = argv[1];
-  const char* ARG_DNS_IP = argv[2];
-  uint32_t resolved_ip;
+  //const char* ARG_DOMAIN = argv[1];
+  //const char* ARG_DNS_IP = argv[2];
+  char arg_domain[256];
+  char arg_dns_ip[INET_ADDRSTRLEN];
+  memset(arg_domain, 0, sizeof(arg_domain));
+  memset(arg_dns_ip, 0, sizeof(arg_dns_ip));
+
   char buf[INET_ADDRSTRLEN];
+  memset(buf, 0, sizeof(buf));
+
+  uint32_t resolved_ip;
   sockaddr_in serv;
+
+  memcpy(arg_domain, argv[1], sizeof(arg_domain));
+  memcpy(arg_dns_ip, argv[2], sizeof(arg_dns_ip));
 
   int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
   if (sockfd < 0) 
@@ -37,15 +47,14 @@ int main(int argc, char* argv[])
   }
 
   memset(&serv, 0, sizeof(serv));
-  memset(buf, 0, sizeof(buf));
 
   serv.sin_family = AF_INET;
   serv.sin_port = htons(DUMMYNS_PORT);
-  serv.sin_addr.s_addr = inet_addr(ARG_DNS_IP);
+  serv.sin_addr.s_addr = inet_addr(arg_dns_ip);
 
-  std::cout << "Sending DNS request to dns=" << ARG_DNS_IP << "..." << "\n";
+  std::cout << "Sending DNS request to dns=" << arg_dns_ip << "..." << "\n";
 
-  int bytes_sent = sendto(sockfd, &ARG_DOMAIN, strnlen(ARG_DOMAIN, MAXARGLEN), 
+  int bytes_sent = sendto(sockfd, &arg_domain, strnlen(arg_domain, MAXARGLEN), 
                           0, (const struct sockaddr*)&serv, sizeof(serv));
   if (bytes_sent < 0) 
   {
@@ -63,7 +72,7 @@ int main(int argc, char* argv[])
     exit(EXIT_FAILURE);
   }
 
-  std::cout << "Received DNS resolution: "  << ARG_DOMAIN << "=" 
+  std::cout << "Received DNS resolution: "  << arg_domain << "=" 
             << inet_ntop(AF_INET, &resolved_ip, buf, INET_ADDRSTRLEN) << "\n";
 
   return 0;
