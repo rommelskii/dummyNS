@@ -1,0 +1,22 @@
+{
+  "tests": 2,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "LineParserTestFixture",
+      "tests": 2,
+      "testsuite": [
+        {
+          "name": "LineParsingPopulationTest",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/line_parser_tests.cpp",
+          "line": 64
+        },
+        {
+          "name": "DnsEntryBuilding",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/line_parser_tests.cpp",
+          "line": 82
+        }
+      ]
+    }
+  ]
+}

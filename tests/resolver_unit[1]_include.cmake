@@ -1,0 +1,5 @@
+if(EXISTS "/Users/mels/projects/dummyNS/tests/resolver_unit[1]_tests.cmake")
+  include("/Users/mels/projects/dummyNS/tests/resolver_unit[1]_tests.cmake")
+else()
+  add_test(resolver_unit_NOT_BUILT resolver_unit_NOT_BUILT)
+endif()

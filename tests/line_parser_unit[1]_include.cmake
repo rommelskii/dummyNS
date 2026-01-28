@@ -1,0 +1,5 @@
+if(EXISTS "/Users/mels/projects/dummyNS/tests/line_parser_unit[1]_tests.cmake")
+  include("/Users/mels/projects/dummyNS/tests/line_parser_unit[1]_tests.cmake")
+else()
+  add_test(line_parser_unit_NOT_BUILT line_parser_unit_NOT_BUILT)
+endif()

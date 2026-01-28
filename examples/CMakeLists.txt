@@ -1,0 +1,4 @@
+add_executable(file_example file_example.cpp)
+add_executable(lexer_example lexer_example.cpp)
+target_link_libraries(file_example PRIVATE dns_core)
+target_link_libraries(lexer_example PRIVATE dns_core)

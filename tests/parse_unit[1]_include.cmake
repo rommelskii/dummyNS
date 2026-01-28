@@ -1,0 +1,5 @@
+if(EXISTS "/Users/mels/projects/dummyhcp_c/tests/parse_unit[1]_tests.cmake")
+  include("/Users/mels/projects/dummyhcp_c/tests/parse_unit[1]_tests.cmake")
+else()
+  add_test(parse_unit_NOT_BUILT parse_unit_NOT_BUILT)
+endif()

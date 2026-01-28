@@ -1,0 +1,37 @@
+{
+  "tests": 5,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "ResolverMapSuite",
+      "tests": 5,
+      "testsuite": [
+        {
+          "name": "DeclarationTest",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/resolver_map_tests.cpp",
+          "line": 17
+        },
+        {
+          "name": "InsertTest",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/resolver_map_tests.cpp",
+          "line": 22
+        },
+        {
+          "name": "ExistingInsertTest",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/resolver_map_tests.cpp",
+          "line": 34
+        },
+        {
+          "name": "RemovalTest",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/resolver_map_tests.cpp",
+          "line": 47
+        },
+        {
+          "name": "FalseRemovalTest",
+          "file": "\/Users\/mels\/projects\/dummyNS\/tests\/resolver_map_tests.cpp",
+          "line": 59
+        }
+      ]
+    }
+  ]
+}
