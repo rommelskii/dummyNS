@@ -37,7 +37,7 @@ ResolverMap::ResolverMap(const std::string PATH) {
               << "\n";
   } else {
     char buf[1024];
-    std::memset(buf, 0, sizeof(buf));
+    memset(buf, 0, sizeof(buf));
 
     std::vector<DnsEntryLine> dns_entries;
 
