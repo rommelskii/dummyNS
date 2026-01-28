@@ -7,8 +7,9 @@
 
 #include <unordered_map>
 #include <string>
-#include "dns_model.h"
 #include <cstdint>
+#include <vector>
+#include "dns_model.h"
 
 /**
  * file: resolver_map.h
