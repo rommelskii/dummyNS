@@ -6,6 +6,7 @@
 
 #include "resolver_map.h"
 #include "line_parser.h"
+#include "dns_model.h"
 
 
 const std::string HOST_FILE_PATH = "hosts.txt";
@@ -42,7 +43,7 @@ int main() {
   std::cout << "Server is now running on port " << DUMMYNS_PORT << "\n";
 
 
-  ResolverMap resolver = ResolverMap(HOST_FILE_PATH);
+  ResolverMap resolver = ResolverMap( GetHostsContent() );
 
 
   for (;;) {

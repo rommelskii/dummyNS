@@ -85,18 +85,18 @@ int main(int argc, char* argv[])
     memcpy(pconfig_buf, argv[2], custom_path_length);
     std::filesystem::path fixed_path = fix_path(pconfig_buf);
     
-    std::fstream file(pconfig_root, std::ios::in | std::ios::out);
+    std::fstream file(pconfig_root, std::ios::out | std::ios::trunc);
     if (!file.is_open()) 
     {
       std::cerr << "File error: custom configuration does not exist" << "\n";
       exit(EXIT_FAILURE);
     }
 
-    file << fixed_path;
+    file << fixed_path.string();
 
     std::cout << "Hosts file set to " << fixed_path << "\n";
   }
-
+ 
 
   exit(EXIT_SUCCESS);
 }
