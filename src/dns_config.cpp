@@ -59,18 +59,26 @@ int main(int argc, char* argv[])
   std::filesystem::path pconfig_root = fs::path(HOME) / ".config" / "dummyns" / "config.dummy";
   if ( strncmp(type_buf, "create", 1024) == 0 ) 
   {
-    std::fstream config(pconfig_root, std::ios::out);
     if (!fs::exists(pconfig_root)) 
     {
-      std::cout << "Default configuration file does not exist. Creating...";
+      std::cout << "Default configuration file does not exist. Creating..."
+                << "\n";
+      std::fstream config(pconfig_root, std::ios::out | std::ios::trunc);
+      if (!config.is_open()) 
+      {
+        std::cerr << "File error: failed to create default configuration file at " 
+                  << pconfig_root << "\n";
+        exit(EXIT_FAILURE);
+      }
+      config << "default";
+      std::cout << "Created configuration file at " << pconfig_root << "\n";
     }
-    if (!config.is_open()) 
+    else
     {
-      std::cerr << "File error: failed to create default configuration file at " << pconfig_root << "\n";
+      std::cerr << "File error: configuration file already exists" 
+                << "\n";
       exit(EXIT_FAILURE);
     }
-    config << "default";
-    std::cout << "Created configuration file at " << pconfig_root << "\n";
   }
   else if ( strncmp(type_buf, "custom", 1024) == 0 )
   {
