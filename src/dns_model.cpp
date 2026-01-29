@@ -9,6 +9,7 @@ std::filesystem::path GetHostsContent()
 {
 
   std::filesystem::path CONFIG_PATH = std::filesystem::path(std::getenv("HOME")) / ".config" / "dummyns" / "config.dummy";
+  std::filesystem::path DEFAULT_HOSTS_PATH = std::filesystem::path(std::getenv("HOME")) / ".config" / "dummyns" / "default_hosts.txt";
 
   std::ifstream infile(CONFIG_PATH);
   if (!infile) 
@@ -26,6 +27,7 @@ std::filesystem::path GetHostsContent()
   infile.getline(buf, sizeof(buf));
   size_t pathlen = strnlen(buf, sizeof(buf));
 
+
   // check if we can find a path from the configuration file
   if (pathlen == 0)
   {
@@ -34,7 +36,16 @@ std::filesystem::path GetHostsContent()
     exit(EXIT_FAILURE);
   }
 
-  std::filesystem::path hosts_path(buf);
+  std::filesystem::path hosts_path;
+
+  if (strncmp(buf, "default", 1024) == 0) 
+  {
+    hosts_path = DEFAULT_HOSTS_PATH;
+  } 
+  else 
+  {
+    hosts_path = std::filesystem::path(buf);
+  }
 
   hosts_path = hosts_path.lexically_normal();
   

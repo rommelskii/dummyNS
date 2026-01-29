@@ -9,7 +9,6 @@
 #include "dns_model.h"
 
 
-const std::string HOST_FILE_PATH = "hosts.txt";
 const uint16_t DUMMYNS_PORT = 8070;
 
 int main() {

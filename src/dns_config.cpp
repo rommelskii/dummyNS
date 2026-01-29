@@ -103,6 +103,22 @@ int main(int argc, char* argv[])
     file << fixed_path.string();
 
     std::cout << "Hosts file set to " << fixed_path << "\n";
+  } else if (strncmp(type_buf, "reset", 1024) == 0)
+  {
+    std::ofstream outfile(pconfig_root, std::ios::out | std::ios::trunc);
+    if (!outfile.is_open()) 
+    {
+      std::cerr << "File error: custom configuration does not exist" << "\n";
+      exit(EXIT_FAILURE);
+    }
+    outfile << "default";
+
+    std::cout << "Sucessfully reset configuration file to default" 
+              << "\n";
+  } else 
+  {
+    std::cerr << "Argument error: option does not exist" << "\n";
+    std::cout << "Usage: ./dns_config (create | config) (config_path)" << "\n";
   }
  
 
