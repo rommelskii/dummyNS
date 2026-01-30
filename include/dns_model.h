@@ -5,6 +5,8 @@
 #ifndef DNS_PROJECT_DNS_MODEL_H
 #define DNS_PROJECT_DNS_MODEL_H
 
+#define DUMMYNS_PORT 8070
+
 #include <filesystem>
 
 struct DnsEntryLine {
