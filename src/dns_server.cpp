@@ -18,6 +18,7 @@ int main()
   }
 
   sockaddr_in dest, cli;
+  socklen_t n = sizeof(cli);
   std::memset(&cli, 0, sizeof(cli));
   std::memset(&dest, 0, sizeof(dest));
 
@@ -41,7 +42,6 @@ int main()
 
   // resolver map prep + addressable reference to client address size 
   ResolverMap resolver = ResolverMap( GetHostsContent() ); 
-  socklen_t n = sizeof(cli);
 
   for (;;) {
     //attempt to receive bytes from source
