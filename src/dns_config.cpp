@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
   } else 
   {
     std::cerr << "Argument error: option does not exist" << "\n";
-    std::cout << "Usage: ./dns_config (create | config) (config_path)" << "\n";
+    std::cout << "Usage: ./dns_config (create | custom) (config_path)" << "\n";
   }
  
 
